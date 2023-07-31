@@ -34,6 +34,8 @@ namespace Ubiq.XR
         private Color collisionColour = new Color(1f, 1f, 0f, 0.4f);
         private Color invalidColour = new Color(1f, 0f, 0f, 0.4f);
 
+        public Button TeleportButton;
+
         private void Awake()
         {
             renderer = GetComponent<LineRenderer>();
@@ -51,8 +53,13 @@ namespace Ubiq.XR
             {
                 item.PrimaryButtonPress.AddListener(UpdateTeleport);
             }
+            TeleportButton.onClick.AddListener(smartphoneTeleport);
         }
 
+        public void smartphoneTeleport()
+        {
+            isTeleporting = true;
+        }
         public void UpdateTeleport(bool teleporterActivation)
         {
             if(teleporterActivation)
