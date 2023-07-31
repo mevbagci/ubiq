@@ -15,6 +15,8 @@ namespace Ubiq.XR
 
         private Vector3 previousMousePosition;
 
+        private int counter = 0;
+
         private void Awake()
         {
             PrimaryButtonPress = new ButtonEvent();
@@ -62,6 +64,15 @@ namespace Ubiq.XR
 
             PrimaryButtonPress.Update(Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt));
 
+        }
+
+        public void HandleTeleportButtonClick()
+        {
+            counter += 1;
+            if (counter % 2 == 0)
+            {
+                PrimaryButtonPress.Update(true);
+            }
         }
 
         private Camera FindCamera()
