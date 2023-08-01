@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 using System.Collections;
 using System;
 using System.Linq;
@@ -60,6 +61,7 @@ namespace Ubiq.XR
         {
             isTeleporting = true;
         }
+
         public void UpdateTeleport(bool teleporterActivation)
         {
             if(teleporterActivation)
